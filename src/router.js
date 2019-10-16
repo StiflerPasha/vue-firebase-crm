@@ -12,7 +12,7 @@ export default new Router({
       path: '/',
       name: 'home',
       meta: { layout: 'main' },
-      component: Home
+      component: () => import('./views/Home.vue')
     },
     {
       path: '/login',
@@ -33,10 +33,10 @@ export default new Router({
       component: () => import('./views/Categories.vue')
     },
     {
-      path: '/detail-record',
-      name: 'detail-record',
+      path: '/detail/:id',
+      name: 'detail',
       meta: { layout: 'main' },
-      component: () => import('./views/DetailRecord.vue')
+      component: () => import('./views/Detail.vue')
     },
     {
       path: '/history',
