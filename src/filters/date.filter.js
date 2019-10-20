@@ -7,6 +7,12 @@ export default function dateFilter(value, format = 'date') {
       options.year = 'numeric'
    }
 
+   if (format.includes('short')) {
+      options.day = '2-digit'
+      options.month = '2-digit'
+      options.year = '2-digit'
+   }
+
    if (format.includes('time')) {
       options.hour = '2-digit'
       options.minute = '2-digit'
