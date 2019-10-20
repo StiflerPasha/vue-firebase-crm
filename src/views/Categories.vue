@@ -4,10 +4,17 @@
       <h3>Категории</h3>
     </div>
     <section>
-      <div class="row">
+      <Loader v-if="loading" />
+      <div v-else class="row">
         <CategoryCreate @created="addNewCategory" />
 
-        <CategoryEdit />
+        <CategoryEdit
+          v-if="categories.length"
+          :categories="categories"
+          @updated="updateCategories"
+          :key="categories.length + updateCount"
+        />
+        <p v-else class="center">Категории пока нет</p>
       </div>
     </section>
   </div>
@@ -20,8 +27,14 @@ import CategoryEdit from "../components/CategoryEdit";
 export default {
   name: "categories",
   data: () => ({
-    categories: []
+    categories: [],
+    loading: true,
+    updateCount: 0
   }),
+  async mounted() {
+    this.categories = await this.$store.dispatch("fetchCategories");
+    this.loading = false;
+  },
   components: {
     CategoryCreate,
     CategoryEdit
@@ -29,7 +42,12 @@ export default {
   methods: {
     addNewCategory(category) {
       this.categories.push(category);
-      console.log(this.categories);
+    },
+    updateCategories(category) {
+      const index = this.categories.findIndex(c => c.id === category.id);
+      this.categories[index].title = category.title;
+      this.categories[index].limit = category.limit;
+      this.updateCount++;
     }
   }
 };
