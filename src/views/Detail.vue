@@ -14,7 +14,7 @@
               <p>Сумма: {{record.amount | currency('RUB')}}</p>
               <p>Категория: {{record.categoryName}}</p>
 
-              <small>{{record.date | date('short')}}</small>
+              <small>{{record.date | date('datetime')}}</small>
             </div>
           </div>
         </div>
@@ -28,30 +28,27 @@
 
 <script>
 export default {
-  name: "detail",
+  name: 'detail',
   data: () => ({
     loading: true,
-    record: null
+    record: null,
   }),
   async mounted() {
     const id = this.$route.params.id;
-    const record = await this.$store.dispatch("fetchRecordById", id);
-    const category = await this.$store.dispatch(
-      "fetchCategoryById",
-      record.categoryId
-    );
+    const record = await this.$store.dispatch('fetchRecordById', id);
+    const category = await this.$store.dispatch('fetchCategoryById', record.categoryId);
 
     this.record = {
       description: record.description,
       amount: record.amount,
       categoryName: category.title,
       date: record.date,
-      typeText: record.type === "income" ? "Доход" : "Расход",
-      typeClass: record.type === "income" ? "green" : "red"
+      typeText: record.type === 'income' ? 'Доход' : 'Расход',
+      typeClass: record.type === 'income' ? 'green' : 'red',
     };
 
     this.loading = false;
-  }
+  },
 };
 </script>
 
