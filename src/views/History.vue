@@ -10,22 +10,21 @@
 
     <Loader v-if="loading" />
 
-    <p v-else-if="!records.length" class="center">
+    <p v-else-if="!records.length"
+       class="center">
       Записей пока нет.
       <router-link to="/record">Добавить</router-link>
     </p>
 
     <section v-else>
       <HistoryTable :records="items" />
-      <Paginate
-        v-model="page"
-        :pageCount="pageCount"
-        :clickHandler="pageChangeHandler"
-        :prevText="'Назад'"
-        :nextText="'Вперед'"
-        :containerClass="'pagination'"
-        :pageClass="'waves-effect'"
-      />
+      <Paginate v-model="page"
+                :pageCount="pageCount"
+                :clickHandler="pageChangeHandler"
+                :prevText="'Назад'"
+                :nextText="'Вперед'"
+                :containerClass="'pagination'"
+                :pageClass="'waves-effect'" />
     </section>
   </div>
 </template>
@@ -102,6 +101,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>

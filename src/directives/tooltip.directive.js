@@ -2,7 +2,7 @@ export default {
   bind(el, { value }) {
     M.Tooltip.init(el, {
       html: value.text,
-      position: value.position || "bottom"
+      position: value.position || 'bottom',
     });
   },
   unbind(el) {
@@ -11,5 +11,5 @@ export default {
     if (tooltip && tooltip.destroy) {
       tooltip.destroy();
     }
-  }
+  },
 };

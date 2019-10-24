@@ -3,24 +3,26 @@
     <Loader v-if="loading" />
     <div v-else-if="record">
       <div class="breadcrumb-wrap">
-        <router-link to="/history" class="breadcrumb">История</router-link>
+        <router-link to="/history"
+                     class="breadcrumb">История</router-link>
         <a class="breadcrumb">{{record.typeText}}</a>
       </div>
       <div class="row">
         <div class="col s12 m6">
-          <div class="card" :class="record.typeClass">
+          <div class="card"
+               :class="record.typeClass">
             <div class="card-content white-text">
               <p>Описание: {{record.description}}</p>
               <p>Сумма: {{record.amount | currency('RUB')}}</p>
               <p>Категория: {{record.categoryName}}</p>
-
               <small>{{record.date | date('datetime')}}</small>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <p v-else class="center">
+    <p v-else
+       class="center">
       <strong>Такой записи нет</strong>
     </p>
   </div>
@@ -51,6 +53,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>

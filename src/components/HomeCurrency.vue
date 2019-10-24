@@ -15,7 +15,8 @@
           </thead>
 
           <tbody>
-            <tr v-for="cur in currencies" :key="cur">
+            <tr v-for="cur in currencies"
+                :key="cur">
               <td>{{cur}}</td>
               <td>{{rates[cur].toFixed(2)}}</td>
               <td>{{date | date('dateshort')}}</td>
@@ -29,12 +30,9 @@
 
 <script>
 export default {
-  props: ["rates", "date"],
+  props: ['rates', 'date'],
   data: () => ({
-    currencies: ["RUB", "USD", "EUR"]
-  })
+    currencies: ['RUB', 'USD', 'EUR'],
+  }),
 };
 </script>
-
-<style>
-</style>
