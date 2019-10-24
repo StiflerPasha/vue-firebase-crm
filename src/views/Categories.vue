@@ -5,39 +5,39 @@
     </div>
     <section>
       <Loader v-if="loading" />
-      <div v-else class="row">
+      <div v-else
+           class="row">
         <CategoryCreate @created="addNewCategory" />
 
-        <CategoryEdit
-          v-if="categories.length"
-          :categories="categories"
-          @updated="updateCategories"
-          :key="categories.length + updateCount"
-        />
-        <p v-else class="center">Категории пока нет</p>
+        <CategoryEdit v-if="categories.length"
+                      :categories="categories"
+                      @updated="updateCategories"
+                      :key="categories.length + updateCount" />
+        <p v-else
+           class="center">Категории пока нет</p>
       </div>
     </section>
   </div>
 </template>
 
 <script>
-import CategoryCreate from "../components/CategoryCreate";
-import CategoryEdit from "../components/CategoryEdit";
+import CategoryCreate from '../components/CategoryCreate';
+import CategoryEdit from '../components/CategoryEdit';
 
 export default {
-  name: "categories",
+  name: 'categories',
   data: () => ({
     categories: [],
     loading: true,
-    updateCount: 0
+    updateCount: 0,
   }),
   async mounted() {
-    this.categories = await this.$store.dispatch("fetchCategories");
+    this.categories = await this.$store.dispatch('fetchCategories');
     this.loading = false;
   },
   components: {
     CategoryCreate,
-    CategoryEdit
+    CategoryEdit,
   },
   methods: {
     addNewCategory(category) {
@@ -48,10 +48,7 @@ export default {
       this.categories[index].title = category.title;
       this.categories[index].limit = category.limit;
       this.updateCount++;
-    }
-  }
+    },
+  },
 };
 </script>
-
-<style>
-</style>
