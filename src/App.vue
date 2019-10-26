@@ -27,3 +27,4 @@ export default {
 @import '~materialize-css/dist/css/materialize.min.css';
 @import 'assets/index.css';
 </style>
+//TODO: Add locales
