@@ -1,30 +1,29 @@
 <template>
   <div>
     <div class="page-title">
-      <h3>Планирование</h3>
+      <h3>{{'Planning_Title' | localize}}</h3>
       <h4>{{info.bill | currency('RUB')}}</h4>
     </div>
 
     <Loader v-if="loading" />
 
-    <p v-else-if="!categories.length"
-       class="center">
+    <p v-else-if="!categories.length" class="center">
       Категорий пока нет.
       <router-link to="/categories">Добавить новую категорию</router-link>
     </p>
 
     <section v-else>
-      <div v-for="c in categories"
-           :key="c.id">
+      <div v-for="c in categories" :key="c.id">
         <strong>
           <strong>{{c.title}}:</strong>
-          {{c.spend | currency}} из {{c.limit | currency}}
+          {{c.spend | currency}} {{'Of' | localize}} {{c.limit | currency}}
         </strong>
-        <div class="progress"
-             v-tooltip="{text: c.tooltip}">
-          <div class="determinate"
-               :class="c.progressColor"
-               :style="{width: `${c.progressPercent}%`}"></div>
+        <div class="progress" v-tooltip="{text: c.tooltip}">
+          <div
+            class="determinate"
+            :class="c.progressColor"
+            :style="{width: `${c.progressPercent}%`}"
+          ></div>
         </div>
       </div>
     </section>

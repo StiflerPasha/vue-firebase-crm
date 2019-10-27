@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="page-title">
-      <h3>История записей</h3>
+      <h3>{{'History_Title' | localize}}</h3>
     </div>
 
     <div class="history-chart">
@@ -10,21 +10,22 @@
 
     <Loader v-if="loading" />
 
-    <p v-else-if="!records.length"
-       class="center">
+    <p v-else-if="!records.length" class="center">
       Записей пока нет.
       <router-link to="/record">Добавить</router-link>
     </p>
 
     <section v-else>
       <HistoryTable :records="items" />
-      <Paginate v-model="page"
-                :pageCount="pageCount"
-                :clickHandler="pageChangeHandler"
-                :prevText="'Назад'"
-                :nextText="'Вперед'"
-                :containerClass="'pagination'"
-                :pageClass="'waves-effect'" />
+      <Paginate
+        v-model="page"
+        :pageCount="pageCount"
+        :clickHandler="pageChangeHandler"
+        :prevText="'Назад'"
+        :nextText="'Вперед'"
+        :containerClass="'pagination'"
+        :pageClass="'waves-effect'"
+      />
     </section>
   </div>
 </template>
@@ -57,7 +58,7 @@ export default {
           ...record,
           categoryName: categories.find(c => c.id === record.categoryId).title,
           typeClass: record.type === 'income' ? 'green' : 'red',
-          typeText: record.type === 'income' ? 'Доход' : 'Расход',
+          //typeText: record.type === 'income' ? 'Доход' : 'Расход',
         })),
       );
 

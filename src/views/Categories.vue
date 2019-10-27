@@ -1,20 +1,20 @@
 <template>
   <div>
     <div class="page-title">
-      <h3>Категории</h3>
+      <h3>{{'Category_Title' | localize}}</h3>
     </div>
     <section>
       <Loader v-if="loading" />
-      <div v-else
-           class="row">
+      <div v-else class="row">
         <CategoryCreate @created="addNewCategory" />
 
-        <CategoryEdit v-if="categories.length"
-                      :categories="categories"
-                      @updated="updateCategories"
-                      :key="categories.length + updateCount" />
-        <p v-else
-           class="center">Категории пока нет</p>
+        <CategoryEdit
+          v-if="categories.length"
+          :categories="categories"
+          @updated="updateCategories"
+          :key="categories.length + updateCount"
+        />
+        <p v-else class="center">Категории пока нет</p>
       </div>
     </section>
   </div>

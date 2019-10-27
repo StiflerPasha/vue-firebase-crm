@@ -1,62 +1,75 @@
 <template>
-  <form class="card auth-card"
-        @submit.prevent="submitHandler">
+  <form class="card auth-card" @submit.prevent="submitHandler">
     <div class="card-content">
-      <span class="card-title">Домашняя бухгалтерия</span>
+      <span class="card-title">{{'Reg_Title' | localize}}</span>
       <div class="input-field">
-        <input id="email"
-               type="text"
-               v-model.trim="email"
-               :class="{invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email)}" />
-        <label for="email">Email</label>
-        <small class="helper-text invalid"
-               v-if="$v.email.$dirty && !$v.email.required">Поле Email не должно быть пустым</small>
-        <small class="helper-text invalid"
-               v-else-if="$v.email.$dirty && !$v.email.email">Неверный формат Email</small>
+        <input
+          id="email"
+          type="text"
+          v-model.trim="email"
+          :class="{invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email)}"
+        />
+        <label for="email">{{'Desc_Email' | localize}}</label>
+        <small
+          class="helper-text invalid"
+          v-if="$v.email.$dirty && !$v.email.required"
+        >{{'ErrorDesc_EmptyEmail' | localize}}</small>
+        <small
+          class="helper-text invalid"
+          v-else-if="$v.email.$dirty && !$v.email.email"
+        >{{'ErrorDesc_FormatEmail' | localize}}</small>
       </div>
 
       <div class="input-field">
-        <input id="password"
-               type="password"
-               v-model.trim="password"
-               :class="{invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength)}" />
-        <label for="password">Пароль</label>
-        <small class="helper-text invalid"
-               v-if="$v.password.$dirty && !$v.password.required">Введите пароль</small>
-        <small class="helper-text invalid"
-               v-else-if="$v.password.$dirty && !$v.password.minLength">Пароль должен иметь не менее {{$v.password.$params.minLength.min}} символов</small>
+        <input
+          id="password"
+          type="password"
+          v-model.trim="password"
+          :class="{invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength)}"
+        />
+        <label for="password">{{'Desc_Password' | localize}}</label>
+        <small
+          class="helper-text invalid"
+          v-if="$v.password.$dirty && !$v.password.required"
+        >{{'ErrorDesc_EmptyPass' | localize}}</small>
+        <small
+          class="helper-text invalid"
+          v-else-if="$v.password.$dirty && !$v.password.minLength"
+        >{{'ErrorDesc_ShortPass' | localize}}</small>
       </div>
 
       <div class="input-field">
-        <input id="name"
-               type="text"
-               v-model.trim="name"
-               :class="{invalid: $v.name.$dirty && !$v.name.required}" />
-        <label for="name">Имя</label>
-        <small class="helper-text invalid"
-               v-if="$v.name.$dirty && !$v.name.required">Введите имя</small>
+        <input
+          id="name"
+          type="text"
+          v-model.trim="name"
+          :class="{invalid: $v.name.$dirty && !$v.name.required}"
+        />
+        <label for="name">{{'Desc_Name' | localize}}</label>
+        <small
+          class="helper-text invalid"
+          v-if="$v.name.$dirty && !$v.name.required"
+        >{{'ErrorDesc_EmptyName' | localize}}</small>
       </div>
 
       <p>
         <label>
-          <input type="checkbox"
-                 v-model="agree" />
-          <span>С правилами согласен</span>
+          <input type="checkbox" v-model="agree" />
+          <span>{{'Desc_Rules' | localize}}</span>
         </label>
       </p>
     </div>
     <div class="card-action">
       <div>
-        <button class="btn waves-effect waves-light auth-submit"
-                type="submit">
-          Зарегистрироваться
+        <button class="btn waves-effect waves-light auth-submit" type="submit">
+          {{'Btn_SignUp' | localize}}
           <i class="material-icons right">send</i>
         </button>
       </div>
 
       <p class="center">
-        Уже есть аккаунт?
-        <router-link to="/login">Войти!</router-link>
+        {{'Desc_HaveAcc' | localize}}
+        <router-link to="/login">{{'Btn_SignIn' | localize}}</router-link>
       </p>
     </div>
   </form>
