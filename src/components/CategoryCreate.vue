@@ -73,7 +73,7 @@ export default {
       try {
         const category = await this.$store.dispatch('createCategory', categoryData);
         // сброс формы
-        this.$message(`Категория [${this.title}] была создана`);
+        this.$message(`Mess_CategoryCreate`);
         this.title = '';
         this.limit = 100;
         this.$v.$reset();

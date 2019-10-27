@@ -11,8 +11,8 @@
     <Loader v-if="loading" />
 
     <p v-else-if="!records.length" class="center">
-      Записей пока нет.
-      <router-link to="/record">Добавить</router-link>
+      {{'Record_NF' | localize}}.
+      <router-link to="/record">{{'Add_Record' | localize}}</router-link>
     </p>
 
     <section v-else>
@@ -21,8 +21,8 @@
         v-model="page"
         :pageCount="pageCount"
         :clickHandler="pageChangeHandler"
-        :prevText="'Назад'"
-        :nextText="'Вперед'"
+        :prevText="'Back' | localize"
+        :nextText="'Forward' | localize"
         :containerClass="'pagination'"
         :pageClass="'waves-effect'"
       />
@@ -34,6 +34,7 @@
 import paginationMixin from '../mixins/pagination.mixin';
 import HistoryTable from '../components/HistoryTable';
 import { Pie } from 'vue-chartjs';
+import localizeFilter from '../filters/localize.filter';
 
 export default {
   name: 'history',
@@ -58,7 +59,6 @@ export default {
           ...record,
           categoryName: categories.find(c => c.id === record.categoryId).title,
           typeClass: record.type === 'income' ? 'green' : 'red',
-          //typeText: record.type === 'income' ? 'Доход' : 'Расход',
         })),
       );
 
@@ -66,7 +66,7 @@ export default {
         labels: categories.map(c => c.title),
         datasets: [
           {
-            label: 'Расходы по категориям',
+            label: localizeFilter('CostsByCategory'),
             data: categories.map(c => {
               return this.records.reduce((total, r) => {
                 if (r.categoryId === c.id && r.type === 'outcome') {

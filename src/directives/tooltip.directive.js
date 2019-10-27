@@ -1,8 +1,10 @@
+import localizeFilter from '../filters/localize.filter';
+
 export default {
-  bind(el, { value }) {
+  bind(el, { value, modifiers }) {
     M.Tooltip.init(el, {
-      html: value.text,
-      position: value.position || 'bottom',
+      html: modifiers.nolocale ? value.text : localizeFilter(value.text),
+      position: value.position || 'left',
     });
   },
   unbind(el) {

@@ -52,6 +52,7 @@
 
 <script>
 import { required, minValue } from 'vuelidate/lib/validators';
+import localizeFilter from '../filters/localize.filter';
 
 export default {
   //props: ["categories"],
@@ -99,7 +100,7 @@ export default {
 
       try {
         await this.$store.dispatch('updateCategory', categoryData);
-        this.$message('Категория обновлена');
+        this.$message('Mess_CategoryUpdate');
         this.$emit('updated', categoryData);
       } catch (e) {}
     },

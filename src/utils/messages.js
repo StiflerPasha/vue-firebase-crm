@@ -1,7 +1,7 @@
 export default {
-  logout: 'Вы вышли из системы',
-  login: 'Для начала войдите в систему',
-  'auth/user-not-found': 'Пользователь с таким Email не найден',
-  'auth/wrong-password': 'Неверный пароль',
-  'auth/email-already-in-use': 'Пользователь с таким Email уже существует',
+  logout: 'Mess_Logout',
+  login: 'Mess_Login',
+  'auth/user-not-found': 'Mess_NoUserWithEmail',
+  'auth/wrong-password': 'Mess_WrongPassword',
+  'auth/email-already-in-use': 'Mess_EmailInUse',
 };

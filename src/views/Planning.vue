@@ -8,8 +8,8 @@
     <Loader v-if="loading" />
 
     <p v-else-if="!categories.length" class="center">
-      Категорий пока нет.
-      <router-link to="/categories">Добавить новую категорию</router-link>
+      {{'Category_NF' | localize}}
+      <router-link to="/categories">{{'AddCategory' | localize}}</router-link>
     </p>
 
     <section v-else>
@@ -18,7 +18,7 @@
           <strong>{{c.title}}:</strong>
           {{c.spend | currency}} {{'Of' | localize}} {{c.limit | currency}}
         </strong>
-        <div class="progress" v-tooltip="{text: c.tooltip}">
+        <div class="progress" v-tooltip.nolocale="{text: c.tooltip}">
           <div
             class="determinate"
             :class="c.progressColor"
@@ -33,6 +33,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import currencyFilter from '../filters/currency.filter';
+import localizeFilter from '../filters/localize.filter';
 
 export default {
   name: 'planning',
@@ -58,7 +59,9 @@ export default {
       const progressColor = percent < 60 ? 'green' : percent < 100 ? 'yellow' : 'red';
 
       const tooltipValue = c.limit - spend;
-      const tooltip = `${tooltipValue < 0 ? 'Превышение на' : 'Осталось'} ${currencyFilter(Math.abs(tooltipValue))}`;
+      const tooltip = `${tooltipValue < 0 ? localizeFilter('Excess') : localizeFilter('Left')} ${currencyFilter(
+        Math.abs(tooltipValue),
+      )}`;
 
       return {
         ...c,

@@ -20,7 +20,7 @@
       </div>
     </div>
     <p v-else class="center">
-      <strong>{{'Detail_NF' | localize}}</strong>
+      <strong>{{'Record_NF' | localize}}</strong>
     </p>
   </div>
 </template>
