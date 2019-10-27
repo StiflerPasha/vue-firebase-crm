@@ -50,7 +50,6 @@ export default {
       type: record.type,
       typeClass: record.type === 'income' ? 'green' : 'red',
     };
-    console.log(this.record);
 
     this.loading = false;
   },
