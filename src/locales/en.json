@@ -33,7 +33,8 @@
   "Bill_Title": "Bill",
   "Bill_CurrencyAccount": "Currency account",
   "Bill_ExchangeRates": "Exchange rates",
-  "History_Title": "Record history",
+  "History_Title": "Records history",
+  "Detail_Title": "Detail",
   "Watch_Record": "Watch record",
   "Currency": "Currency",
   "Rate": "Rate",
@@ -54,6 +55,8 @@
   "Create": "Create",
   "Edit": "Edit",
   "History": "History",
+  "Registration": "Registration",
+  "LogIn": "LogIn",
   "SelectCategory": "Select a category",
   "AddRecord": "Add record",
   "AddCategory": "Add new category",
@@ -69,5 +72,6 @@
   "Navbar_LogOut": "Log Out",
   "Navbar_Profile": "Profile",
   "CostsByCategory": "Costs by category",
-  "RecordCreate": "Record created successfully"
+  "RecordCreate": "Record created successfully",
+  "Record_Title": "Record"
 }

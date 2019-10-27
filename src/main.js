@@ -3,6 +3,7 @@ import Vue from 'vue';
 import router from './router';
 import store from './store';
 
+import VueMeta from 'vue-meta';
 import Vuelidate from 'vuelidate';
 import Paginate from 'vuejs-paginate';
 
@@ -11,6 +12,7 @@ import currencyFilter from './filters/currency.filter';
 import localizeFilter from './filters/localize.filter';
 
 import messagePlugin from './utils/message.plugin';
+import titlePlugin from './utils/title.plugin';
 import tooltipDirective from './directives/tooltip.directive';
 import Loader from './components/app/Loader.vue';
 
@@ -24,7 +26,9 @@ import 'firebase/database';
 Vue.config.productionTip = false;
 
 Vue.use(messagePlugin);
+Vue.use(titlePlugin);
 Vue.use(Vuelidate);
+Vue.use(VueMeta);
 Vue.filter('date', dateFilter);
 Vue.filter('currency', currencyFilter);
 Vue.filter('localize', localizeFilter);

@@ -34,6 +34,7 @@
   "Bill_CurrencyAccount": "Счет в валюте",
   "Bill_ExchangeRates": "Курс валют",
   "History_Title": "История записей",
+  "Detail_Title": "Подробно",
   "Watch_Record": "Посмотреть запись",
   "Currency": "Валюта",
   "Rate": "Курс",
@@ -54,6 +55,8 @@
   "Create": "Создать",
   "Edit": "Редактировать",
   "History": "История",
+  "Registration": "Регистрация",
+  "LogIn": "Вход",
   "SelectCategory": "Выберите категорию",
   "AddRecord": "Добавить запись",
   "AddCategory": "Добавить новую категорию",
@@ -69,5 +72,6 @@
   "Navbar_LogOut": "Выйти",
   "Navbar_Profile": "Профиль",
   "CostsByCategory": "Расходы по категориям",
-  "RecordCreate": "Запись успешно создана"
+  "RecordCreate": "Запись успешно создана",
+  "Record_Title": "Записи"
 }
