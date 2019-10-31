@@ -3,17 +3,20 @@
     <div class="page-title">
       <h3>{{'Bill_Title' | localize}}</h3>
 
-      <button class="btn waves-effect waves-light btn-small" @click="refreshCurrency">
+      <button class="btn waves-effect waves-light btn-small"
+              @click="refreshCurrency">
         <i class="material-icons">refresh</i>
       </button>
     </div>
 
     <Loader v-if="loading" />
 
-    <div v-else class="row">
+    <div v-else
+         class="row">
       <HomeBill :rates="currency.rates" />
 
-      <HomeCurrency :rates="currency.rates" :date="currency.date" />
+      <HomeCurrency :rates="currency.rates"
+                    :date="currency.date" />
     </div>
   </div>
 </template>

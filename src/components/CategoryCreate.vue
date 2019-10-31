@@ -7,34 +7,27 @@
 
       <form @submit.prevent="submitHandler">
         <div class="input-field">
-          <input
-            id="name"
-            type="text"
-            v-model="title"
-            :class="{invalid: $v.title.$dirty && !$v.title.required}"
-          />
+          <input id="name"
+                 type="text"
+                 v-model="title"
+                 :class="{invalid: $v.title.$dirty && !$v.title.required}" />
           <label for="name">{{'Title' | localize}}</label>
-          <span
-            v-if="$v.title.$dirty && !$v.title.required"
-            class="helper-text invalid"
-          >{{'ErorDesc_EmptyTitle' | localize}}</span>
+          <span v-if="$v.title.$dirty && !$v.title.required"
+                class="helper-text invalid">{{'ErorDesc_EmptyTitle' | localize}}</span>
         </div>
 
         <div class="input-field">
-          <input
-            id="limit"
-            type="number"
-            v-model.number="limit"
-            :class="{invalid: $v.limit.$dirty && !$v.limit.minValue}"
-          />
+          <input id="limit"
+                 type="number"
+                 v-model.number="limit"
+                 :class="{invalid: $v.limit.$dirty && !$v.limit.minValue}" />
           <label for="limit">{{'Limit' | localize}}</label>
-          <span
-            v-if="$v.limit.$dirty && !$v.limit.minValue"
-            class="helper-text invalid"
-          >{{'MinValue' | localize}} {{this.$v.limit.$params.minValue.min}}</span>
+          <span v-if="$v.limit.$dirty && !$v.limit.minValue"
+                class="helper-text invalid">{{'MinValue' | localize}} {{this.$v.limit.$params.minValue.min}}</span>
         </div>
 
-        <button class="btn waves-effect waves-light" type="submit">
+        <button class="btn waves-effect waves-light"
+                type="submit">
           {{'Btn_Create' | localize}}
           <i class="material-icons right">send</i>
         </button>

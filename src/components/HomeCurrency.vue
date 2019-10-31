@@ -15,7 +15,8 @@
           </thead>
 
           <tbody>
-            <tr v-for="cur in currencies" :key="cur">
+            <tr v-for="cur in currencies"
+                :key="cur">
               <td>{{cur}}</td>
               <td>{{rates[cur].toFixed(2)}}</td>
               <td>{{date | date('dateshort')}}</td>

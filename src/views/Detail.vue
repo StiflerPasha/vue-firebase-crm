@@ -3,12 +3,14 @@
     <Loader v-if="loading" />
     <div v-else-if="record">
       <div class="breadcrumb-wrap">
-        <router-link to="/history" class="breadcrumb">{{'History' | localize}}</router-link>
+        <router-link to="/history"
+                     class="breadcrumb">{{'History' | localize}}</router-link>
         <a class="breadcrumb">{{record.type | localize}}</a>
       </div>
       <div class="row">
         <div class="col s12 m6">
-          <div class="card" :class="record.typeClass">
+          <div class="card"
+               :class="record.typeClass">
             <div class="card-content white-text">
               <p>{{'Description' | localize}}: {{record.description}}</p>
               <p>{{'Amount' | localize}}: {{record.amount | currency('RUB')}}</p>
@@ -19,7 +21,8 @@
         </div>
       </div>
     </div>
-    <p v-else class="center">
+    <p v-else
+       class="center">
       <strong>{{'Record_NF' | localize}}</strong>
     </p>
   </div>

@@ -5,16 +5,16 @@
     </div>
     <section>
       <Loader v-if="loading" />
-      <div v-else class="row">
+      <div v-else
+           class="row">
         <CategoryCreate @created="addNewCategory" />
 
-        <CategoryEdit
-          v-if="categories.length"
-          :categories="categories"
-          @updated="updateCategories"
-          :key="categories.length + updateCount"
-        />
-        <p v-else class="center">{{'EmptyCategory' | localize}}</p>
+        <CategoryEdit v-if="categories.length"
+                      :categories="categories"
+                      @updated="updateCategories"
+                      :key="categories.length + updateCount" />
+        <p v-else
+           class="center">{{'EmptyCategory' | localize}}</p>
       </div>
     </section>
   </div>

@@ -10,22 +10,21 @@
 
     <Loader v-if="loading" />
 
-    <p v-else-if="!records.length" class="center">
+    <p v-else-if="!records.length"
+       class="center">
       {{'Record_NF' | localize}}.
       <router-link to="/record">{{'Add_Record' | localize}}</router-link>
     </p>
 
     <section v-else>
       <HistoryTable :records="items" />
-      <Paginate
-        v-model="page"
-        :pageCount="pageCount"
-        :clickHandler="pageChangeHandler"
-        :prevText="'Back' | localize"
-        :nextText="'Forward' | localize"
-        :containerClass="'pagination'"
-        :pageClass="'waves-effect'"
-      />
+      <Paginate v-model="page"
+                :pageCount="pageCount"
+                :clickHandler="pageChangeHandler"
+                :prevText="'Back' | localize"
+                :nextText="'Forward' | localize"
+                :containerClass="'pagination'"
+                :pageClass="'waves-effect'" />
     </section>
   </div>
 </template>

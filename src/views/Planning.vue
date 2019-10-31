@@ -7,23 +7,24 @@
 
     <Loader v-if="loading" />
 
-    <p v-else-if="!categories.length" class="center">
+    <p v-else-if="!categories.length"
+       class="center">
       {{'Category_NF' | localize}}
       <router-link to="/categories">{{'AddCategory' | localize}}</router-link>
     </p>
 
     <section v-else>
-      <div v-for="c in categories" :key="c.id">
+      <div v-for="c in categories"
+           :key="c.id">
         <strong>
           <strong>{{c.title}}:</strong>
           {{c.spend | currency}} {{'Of' | localize}} {{c.limit | currency}}
         </strong>
-        <div class="progress" v-tooltip.nolocale="{text: c.tooltip}">
-          <div
-            class="determinate"
-            :class="c.progressColor"
-            :style="{width: `${c.progressPercent}%`}"
-          ></div>
+        <div class="progress"
+             v-tooltip.nolocale="{text: c.tooltip}">
+          <div class="determinate"
+               :class="c.progressColor"
+               :style="{width: `${c.progressPercent}%`}"></div>
         </div>
       </div>
     </section>

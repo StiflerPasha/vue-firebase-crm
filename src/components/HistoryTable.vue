@@ -12,20 +12,20 @@
     </thead>
 
     <tbody>
-      <tr v-for="(record, i) in records" :key="record.id">
+      <tr v-for="(record, i) in records"
+          :key="record.id">
         <td>{{++i}}</td>
         <td>{{record.amount | currency('RUB')}}</td>
         <td>{{record.date | date('short')}}</td>
         <td>{{record.categoryName}}</td>
         <td>
-          <span class="white-text badge" :class="record.typeClass">{{record.type | localize}}</span>
+          <span class="white-text badge"
+                :class="record.typeClass">{{record.type | localize}}</span>
         </td>
         <td>
-          <button
-            v-tooltip="{text:'Watch_Record'}"
-            class="btn-small btn"
-            @click="$router.push('/detail/' + record.id)"
-          >
+          <button v-tooltip="{text:'Watch_Record'}"
+                  class="btn-small btn"
+                  @click="$router.push('/detail/' + record.id)">
             <i class="material-icons">open_in_new</i>
           </button>
         </td>
