@@ -31,7 +31,7 @@
   padding-top: 5px;
   position: absolute;
   top: 64px;
-  width: 250px;
+  width: auto;
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
   bottom: 0 !important;
