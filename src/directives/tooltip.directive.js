@@ -9,7 +9,7 @@ export default {
   },
   unbind(el) {
     const tooltip = M.Tooltip.getInstance(el);
-
+    
     if (tooltip && tooltip.destroy) {
       tooltip.destroy();
     }

@@ -5,12 +5,11 @@ export default {
     async fetchCategories({ dispatch, commit }) {
       try {
         const uid = await dispatch('getUid');
-        const categories =
-          (await firebase
-            .database()
-            .ref(`/users/${uid}/categories`)
-            .once('value')).val() || {};
-
+        const categories = (await firebase
+         .database()
+         .ref(`/users/${ uid }/categories`)
+         .once('value')).val() || {};
+        
         return Object.keys(categories).map(key => ({
           ...categories[key],
           id: key,
@@ -23,13 +22,12 @@ export default {
     async fetchCategoryById({ dispatch, commit }, id) {
       try {
         const uid = await dispatch('getUid');
-        const category =
-          (await firebase
-            .database()
-            .ref(`/users/${uid}/categories`)
-            .child(id)
-            .once('value')).val() || {};
-
+        const category = (await firebase
+         .database()
+         .ref(`/users/${ uid }/categories`)
+         .child(id)
+         .once('value')).val() || {};
+        
         return { ...category, id };
       } catch (e) {
         commit('setError', e);
@@ -40,10 +38,10 @@ export default {
       try {
         const uid = await dispatch('getUid');
         const category = await firebase
-          .database()
-          .ref(`/users/${uid}/categories`)
-          .push({ title, limit });
-
+         .database()
+         .ref(`/users/${ uid }/categories`)
+         .push({ title, limit });
+        
         return { title, limit, id: category.key };
       } catch (e) {
         commit('setError', e);
@@ -54,11 +52,12 @@ export default {
       try {
         const uid = await dispatch('getUid');
         await firebase
-          .database()
-          .ref(`/users/${uid}/categories`)
-          .child(id)
-          .update({ title, limit });
-      } catch (e) {}
+         .database()
+         .ref(`/users/${ uid }/categories`)
+         .child(id)
+         .update({ title, limit });
+      } catch (e) {
+      }
     },
   },
 };

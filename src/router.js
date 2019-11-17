@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import Vue      from 'vue';
+import Router   from 'vue-router';
 import firebase from 'firebase/app';
 
 Vue.use(Router);
@@ -68,7 +68,7 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   const currentUser = firebase.auth().currentUser;
   const requiredAuth = to.matched.some(record => record.meta.auth);
-
+  
   if (requiredAuth && !currentUser) {
     next('/login?message=login');
   } else {
